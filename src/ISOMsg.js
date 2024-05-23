@@ -132,7 +132,7 @@ class ISOMsg extends ISOComponent {
             return;
         }
         let mf = Math.min(this.getMaxField(), 192);
-        let bmap = new BitSet(mf + 62 >> 6 << 6);
+        let bmap = new BitSet(((mf + 62) >> 6) << 6);
         for (let i = 1; i <= mf; i++) {
             if (this.fields[i] != null) {
                 bmap.set(i);
