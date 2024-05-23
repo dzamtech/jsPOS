@@ -18,7 +18,7 @@ class IFB_BITMAP extends ISOBitMapPackager {
     pack(field:ISOComponent):Array {
         //noinspection JSValidateTypes
         let b:BitSet = field.getValue();
-        let len = this.getLength() >= 8 ? b.length() + 62 >> 6 << 3 : this.getLength();
+        let len = this.getLength() >= 8 ? (((b.length() + 62) >> 6) << 3) : this.getLength();
         return ISOUtil.bitSet2byte(b, len);
     }
 
